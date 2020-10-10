@@ -1,0 +1,351 @@
+:root {
+    --fuente-principal : 'Lato', sans-serif;
+    --primario : #da595e;
+    --oscuro : #484848;
+    --claro : #ffffff;
+
+    --hospedaje : #275154;
+    --concierto : #da595e;
+    --clase : #598dda;
+    --paseo : #940ad4;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuente-principal);
+}
+
+h1 {
+    font-size: 2.6rem;
+    font-weight: 400;
+}         
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+
+.hospedaje {
+    color: var(--hospedaje);    
+}
+
+.concierto {
+    color: var(--concierto);
+}
+
+.clase {
+    color: var(--clase);
+}
+
+.paseo {
+    color: var(--paseo);
+}
+
+/* Interfaz */
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('../img/arriba.jpg');
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    /* animation: heroAnimation linear 10s infinite; */
+}
+
+@keyframes heroAnimation {
+    /* 0%, 100% {
+        background-image: url('../img/arriba.jpg');
+        background-position: center 0px;
+    }
+    50% {
+        background-image: url('../img/arriba2.jpg');
+        background-position: center -40px;
+    } */
+    from {
+        background-position: center 0px;
+    }
+    to {
+        background-position: center -40px;
+        background-image: url('../img/arriba2.jpg');
+    }
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    padding-top: 1rem;
+}
+
+.header .navegacion a {
+    color: var(--claro);
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+
+.header .navegacion a:last-of-type {
+    margin-right: 0;
+}
+
+.contenido-hero {
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: max-content auto;
+}
+
+.contenido-hero h1 {
+    grid-column: 2 / 3;
+    color: var(--claro);
+}
+
+.contenido-hero form {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    position: relative;
+    display: flex;
+    height: 3.5rem;
+}
+
+form input[type="text"] {
+    /* nos ayuda a tomar todo el espacio disponible */
+    flex: 1; 
+    border: none;
+    border-radius: 10px;  
+    background-image: url('../img/lupa.png');
+    background-repeat: no-repeat;
+    background-position: calc(1% + 1rem) calc(1% + .5rem); 
+    padding-left: 5rem;
+    font-size: 1.6rem;
+}
+
+form input[type="submit"] {
+    position: absolute;
+    right: .8rem;
+    top: 11%;
+    padding: .7rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primario);
+    color: var(--claro);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.boton {
+    padding: 1rem;
+    background-color: var(--claro);
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--oscuro);
+    font-weight: 700;
+    font-size: 1.2rem;
+    -webkit-box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    transition: all .3s ease-in-out;
+}
+
+.boton:hover {
+    background-color: var(--primario);
+    color: var(--claro);
+}
+
+.btn-flotante {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--claro);
+    color: var(--oscuro)    ;
+    padding: .5rem 2rem;
+    text-decoration: none;
+    -webkit-box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    box-shadow: 0px 13px 19px -10px rgba(0,0,0,0.45);
+    transition: all .3s ease-in-out;
+}
+
+.btn-flotante.activo,
+.btn-flotante:hover {
+    background-color: var(--primario);
+    color: var(--claro);
+}
+/* Contenido Principal */
+
+.contenedor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
+
+.card img {
+    width: 100%;
+}
+
+.categoria {
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.titulo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin: 0; 
+}
+
+.precio {
+    color: var(--oscuro);
+    font-size: .9rem;
+}
+
+
+/* Premium */
+
+.premium {
+    height: 28rem;
+    background-image: url('../img/hospedaje-pro.jpg');  
+    background-repeat: no-repeat;
+    background-position: center right;
+    /* background-size: cover; */
+    grid-template-columns: unset;
+}
+
+@media screen and (min-width: 768px) {
+    .premium {
+        grid-template-columns: auto 30%;
+    }
+
+    .premium .info {
+        grid-column: 2 / 3;
+    } 
+}
+
+.premium .info {
+    display: flex;   
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.premium .info h3 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+    .premium .info h3 {
+        text-align: right;
+    }
+}
+
+
+/* Destinos ´Populares */
+.destinos .contenedor-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.destinos .card {
+    position: relative;
+}   
+
+.destinos .titulo {
+    position: absolute;
+    color: var(--claro);
+    bottom: 1rem;
+    left: 1rem;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    /* Desaparece el footer */
+    bottom: -100%;
+    background-color: var(--claro);
+    width: 100%;
+    padding: 4rem 0;
+    border-top: 1px solid var(--oscuro);
+    -webkit-box-shadow: 0px -7px 25px -5px rgba(0,0,0,0.41);
+    -moz-box-shadow: 0px -7px 25px -5px rgba(0,0,0,0.41);
+    box-shadow: 0px -7px 25px -5px rgba(0,0,0,0.41);
+    transition: all .3s ease; 
+}
+
+.footer.activo {
+    bottom: 0;
+}
+
+.nav-footer {
+    padding: 1rem;
+}
+
+.nav-footer h3 {
+    font-size: 1.2rem;
+} 
+
+.nav-footer .menu a {
+    display: block;
+    text-decoration: none;
+    color: var(--oscuro);
+    line-height: 1.8;
+}
+
+.nav-footer .sociales ul li span {
+    display: none;
+}
+
+.nav-footer .sociales ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    flex: 1 0 auto;
+}
+
+.nav-footer .sociales ul li {
+    margin-right: 1rem;
+}
+
+.nav-footer .sociales ul li:last-of-type {
+    margin-right: 0;
+}
+
+.nav-footer .sociales ul li a{
+    text-decoration: none;
+    color: var(--oscuro);
+    font-size: 1.8rem;
+}
+
+.nav-footer .sociales ul li a::before {
+    font-family: 'Font Awesome 5 Brands';   
+}
+
+.nav-footer .sociales ul li a[href*='facebook.com']::before {
+    content: '\f39e';
+}
+.sociales ul li a[href*='twitter.com']::before {
+    content: '\f099';
+}
+.sociales ul li a[href*='instagram.com']::before {
+    content: '\f16d';
+}
+
